@@ -1,0 +1,4 @@
+.has-error input, .has-error select{
+    border-color:red;
+    /* border-bottom-color: red; */
+}
