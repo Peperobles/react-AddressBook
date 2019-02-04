@@ -23,7 +23,7 @@ class Toggle extends Component {
         <Collapse isOpen={this.state.collapse}>
           <Card>
             <CardBody>
-             <FormUpdate updateUser={this.props.updateUser} value={this.props.value} users={this.props.users} />
+             <FormUpdate updateContact={this.props.updateContact} value={this.props.value} contacts={this.props.contacts} />
             </CardBody>
           </Card>
         </Collapse>

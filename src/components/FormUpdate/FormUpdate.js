@@ -9,15 +9,15 @@ export class FormUpdate extends Component {
 
         this.state = {
             //Default send the same values
-            firstName: this.props.users.firstName,
-            lastName: this.props.users.lastName,
-            email: this.props.users.email,
-            country: this.props.users.country,
-            img: this.props.users.img
+            firstName: this.props.contacts.firstName,
+            lastName: this.props.contacts.lastName,
+            email: this.props.contacts.email,
+            country: this.props.contacts.country,
+            img: this.props.contacts.img
 
         }
     }
-    handleUserInput = (e) => {
+    handleContactInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({ [name]: value });
@@ -27,9 +27,9 @@ export class FormUpdate extends Component {
         return (
             <div>
                 <form
-                    onChange={(event) => this.handleUserInput(event)}
+                    onChange={(event) => this.handleContactInput(event)}
                 >
-                    <h2>Update User</h2>
+                    <h2>Update Contact</h2>
                     <div >
                         <label >First Name</label>
                         <input
@@ -70,9 +70,9 @@ export class FormUpdate extends Component {
                     <button
                         type="button"
                         className="btn btn-primary"
-                        onClick={this.props.updateUser.bind(this, this.props.value, this.state.firstName, this.state.lastName, this.state.email, this.state.country, this.state.img)}
+                        onClick={this.props.updateContact.bind(this, this.props.value, this.state.firstName, this.state.lastName, this.state.email, this.state.country, this.state.img)}
                     >
-                        Update User
+                        Update Contact
                     </button>
                 </form>
             </div>

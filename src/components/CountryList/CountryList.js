@@ -20,8 +20,8 @@ class CountryListOptions extends Component {
  
   render() {
     return (
-        <div >
-            <select name="country" form="form-group">
+        <div>
+            <select name="country" form="form-group" className="form-control">
             <option value="">--</option>
             {this.state.options.map((country)=> 
                 <option key={country.code} value={country.name}>{country.name}</option>

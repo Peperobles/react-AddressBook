@@ -1,0 +1,12 @@
+#header-container{
+    height: 5vh;
+    background: #1a1a1a;
+}
+#header-container a{
+    color:white;
+}
+
+#header-container a:hover{
+    text-decoration: underline;
+    color:#5a5a5a;
+}

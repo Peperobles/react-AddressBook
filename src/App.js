@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 // Components
 import {Layout} from './containers/Layout/Layout';
 
-
-// import './App.css';
+import './App.css'
 
 class App extends Component {
   render() {

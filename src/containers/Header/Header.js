@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-// Lib
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+//Routes
+import { NavLink } from 'react-router-dom';
+
+// Css
+import './Header.css'
 
 export class Header extends Component {
     constructor(props) {
@@ -21,20 +24,21 @@ export class Header extends Component {
     render() {
         return (
             <header>
-                <Navbar color="faded" light>
-                    <NavbarBrand href="/" className="mr-auto">Address Book - GOT</NavbarBrand>
-                    <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-                    <Collapse isOpen={!this.state.collapsed} navbar>
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink href="../../components/AddressList/AddressList">Address Crud</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/algo">Address List</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
+
+                <div className="container-fluid">
+                    <div className="row align-items-center" id="header-container">
+                        <div className="col text-center">
+                            <NavLink to='/'>Home</NavLink>
+                        </div>
+                        <div className="col text-center">
+                            <NavLink to='/contacts'>Contacts</NavLink>
+                        </div>
+                        <div className="col text-center">
+                            <NavLink to='/admin'>Admin</NavLink>
+                        </div>
+                    </div>
+
+                </div>
             </header>
         )
     }

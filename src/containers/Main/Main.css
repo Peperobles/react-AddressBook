@@ -1,0 +1,13 @@
+
+#content{
+    height: 100vh;
+    background: url("https://i.redd.it/h7uga1bv24fz.jpg") no-repeat center center fixed;
+}
+#smoke{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+#main-container{
+    height: 50vh;
+}

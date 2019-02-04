@@ -24,7 +24,7 @@ export class Form extends Component {
             test: '',
         }
     }
-    handleUserInput = (e) => {
+    handleContactInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({ [name]: value },
@@ -78,9 +78,9 @@ export class Form extends Component {
             <div>
                 <form
                     className="demoForm"
-                    onChange={(event) => this.handleUserInput(event)}
+                    onChange={(event) => this.handleContactInput(event)}
                 >
-                    <h2>Sign up</h2>
+                    <h2>New Contact</h2>
                     <div className="panel panel-default”">
                         <FormErrors formErrors={this.state.formErrors} />
                     </div>
@@ -93,7 +93,7 @@ export class Form extends Component {
                             defaultValue={this.state.firstName}
                         />
                     </div>
-                    <div >
+                    <div className="form-group">
                         <label htmlFor="lastName">Last Name</label>
                         <input
                             type="text"
@@ -126,7 +126,7 @@ export class Form extends Component {
                         type="button"
                         className="btn btn-primary"
                         disabled={!this.state.formValid}
-                        onClick={this.props.addUser.bind(this, this.state.firstName, this.state.lastName, this.state.email, this.state.country, this.state.img)}
+                        onClick={this.props.addContact.bind(this, this.state.firstName, this.state.lastName, this.state.email, this.state.country, this.state.img)}
                     >
                         Add Contact
                     </button>
