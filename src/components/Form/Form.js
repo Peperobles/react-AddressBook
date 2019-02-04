@@ -4,10 +4,6 @@ import React, { Component } from 'react'
 import { FormErrors } from '../FormErrors/FormErrors';
 import CountryListOptions from '../CountryList/CountryList';
 
-//css
-import './Form.css';
-
-
 export class Form extends Component {
     constructor(props) {
         super(props);
@@ -16,11 +12,13 @@ export class Form extends Component {
             lastName: '',
             email: '',
             country: '',
+            img: 'http://www.ministeriodecultura.gob.cu/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png',
             formErrors: { firstName: '', lastName: '', email: '', country: '' },
             firstNameValid: false,
             lastNameValid: false,
             emailValid: false,
             countryValid: false,
+
             formValid: false,
 
             test: '',
@@ -35,10 +33,10 @@ export class Form extends Component {
 
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
-        let emailValid = this.state.emailValid;
         let firstNameValid = this.state.firstNameValid;
         let lastNameValid = this.state.lastNameValid;
-        let countrValid = this.state.countryValid;
+        let emailValid = this.state.emailValid;
+        let countryValid = this.state.countryValid;
 
         switch (fieldName) {
             case 'firstName':
@@ -47,84 +45,90 @@ export class Form extends Component {
                 break;
             case 'lastName':
                 lastNameValid = value.length > 1;
-                fieldValidationErrors.lastName = lastNameValid ? '' : ' is too asdfasdf';
+                fieldValidationErrors.lastName = lastNameValid ? '' : ' is too short';
                 break;
             case 'email':
                 emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
                 fieldValidationErrors.email = emailValid ? '' : ' is invalid';
                 break;
             case 'country':
-                countrValid = value.length > 1
-                fieldValidationErrors.country = countrValid ? '' : ' is invalid';
+                countryValid = value.length > 1
+                fieldValidationErrors.country = countryValid ? '' : ' is invalid';
                 break;
             default:
                 break;
         }
         this.setState({
             formErrors: fieldValidationErrors,
-            emailValid: emailValid,
             firstNameValid: firstNameValid,
             lastNameValid: lastNameValid,
+            emailValid: emailValid,
+            countryValid: countryValid
 
         }, this.validateForm);
     }
 
     validateForm() {
-        this.setState({ formValid: this.state.emailValid && this.state.passwordValid });
+        // If all are true, formValid true
+        this.setState({ formValid: this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.countryValid });
     }
-
-    errorClass(error) {
-        //Need error.length because is initialized as '';
-        return (error.length === 0 ? '' : 'has-error');
-    }
-
 
     render() {
         return (
             <div>
-                <div className="panel panel-default”">
-                    <FormErrors formErrors={this.state.formErrors} />
-                </div>
                 <form
                     className="demoForm"
                     onChange={(event) => this.handleUserInput(event)}
                 >
                     <h2>Sign up</h2>
-                    <div className={`form-group ${this.errorClass(this.state.formErrors.firstName)}`}>
+                    <div className="panel panel-default”">
+                        <FormErrors formErrors={this.state.formErrors} />
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="firstName">First Name</label>
                         <input
                             type="text"
                             className="form-control"
                             name="firstName"
-                            value={this.state.firstName} 
-                            />
+                            defaultValue={this.state.firstName}
+                        />
                     </div>
-                    <div className={`form-group ${this.errorClass(this.state.formErrors.lastName)}`}>
+                    <div >
                         <label htmlFor="lastName">Last Name</label>
                         <input
                             type="text"
                             className="form-control"
                             name="lastName"
-                            value={this.state.lastName} />
+                            defaultValue={this.state.lastName} />
                     </div>
-                    <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+                    <div className="form-group">
                         <label >Email address</label>
                         <input
                             type="text"
                             className="form-control"
                             name="email"
-                            value={this.state.email} />
+                            defaultValue={this.state.email} />
                     </div>
-                    <div className={`form-group ${this.errorClass(this.state.formErrors.country)}`}>
+                    <div className="form-group">
                         <label>Country</label>
                         <CountryListOptions />
                     </div>
-                    <button 
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={this.props.addUser.bind(this, this.state.firstName, this.state.lastName, this.state.email, this.state.country)}
+                    <div className="form-group">
+                        <label >Url Img</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="img"
+                            defaultValue=''
+                            placeholder="url...jpg" />
+                    </div>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        disabled={!this.state.formValid}
+                        onClick={this.props.addUser.bind(this, this.state.firstName, this.state.lastName, this.state.email, this.state.country, this.state.img)}
                     >
-                        Sign up
+                        Add Contact
                     </button>
                 </form>
             </div>
