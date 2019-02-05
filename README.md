@@ -1,8 +1,14 @@
 
-### `npm install`
+# AddressBook
 
-Install modules
+This project was generated with [React]
 
-### `npm start`
+## Instructions
 
-Go to ADMIN and click PRELOAD CONTACTS to get data from json and save in localstorage
+```
+>> npm install [install modules]
+>> npm start
+```
+Go to ADMIN and click PRELOAD CONTACTS to get data from json and save in localstorage 
+
+You can add contacts manually

@@ -1,5 +1,5 @@
 #header-container{
-    height: 5vh;
+    min-height: 5vh;
     background: #1a1a1a;
 }
 #header-container a{

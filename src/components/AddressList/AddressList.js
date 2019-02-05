@@ -16,6 +16,7 @@ export class AddressList extends Component {
     }
   }
 
+  // Get data from localStorage
   componentWillMount() {
     localStorage.getItem('Contacts') && this.setState({
       contacts: JSON.parse(localStorage.getItem('Contacts'))
@@ -24,11 +25,11 @@ export class AddressList extends Component {
   render() {
     return (
       <div id="list">
-        <h2 className="text-center">When you play a game of thrones you win or you die.</h2>
+        <h2 className="text-center pt-3">When you play a game of thrones you win or you die.</h2>
         <div className="container">
           <div className="row">
           {this.state.contacts.map((contact, index) =>
-            <div className="col mt-3" key={index}>
+            <div className="col-sm-4 mt-3" key={index}>
               <CardContact 
               contacts={
                 {firstName: contact.firstName,
@@ -39,11 +40,8 @@ export class AddressList extends Component {
                 }/>
             </div>
             )}
-
           </div>
-
         </div>
-
       </div>
     )
   }

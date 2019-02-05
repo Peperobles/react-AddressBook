@@ -7,7 +7,7 @@ import './Main.css'
 export class Main extends Component {
   render() {
     return (
-      <div id="content">
+      <div>
         <div id="smoke" className="container-fluid">
           <div className="row align-items-center" id="main-container">
             <div className="col align-self-end">
@@ -27,10 +27,7 @@ export class Main extends Component {
             </div>
           </div>
         </div>
-
-
       </div>
-
     )
   }
 }

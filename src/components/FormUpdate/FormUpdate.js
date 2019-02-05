@@ -17,6 +17,7 @@ export class FormUpdate extends Component {
 
         }
     }
+    // Same than Form
     handleContactInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;

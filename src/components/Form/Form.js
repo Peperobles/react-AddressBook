@@ -24,6 +24,8 @@ export class Form extends Component {
             test: '',
         }
     }
+
+    // Set State with target name and target value && validate Field
     handleContactInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -31,6 +33,7 @@ export class Form extends Component {
             () => { this.validateField(name, value) });
     }
 
+    // Al validations required, when true in validateForm go formValid true and button is enable
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
         let firstNameValid = this.state.firstNameValid;
@@ -68,8 +71,8 @@ export class Form extends Component {
         }, this.validateForm);
     }
 
+    // If all are true, formValid true
     validateForm() {
-        // If all are true, formValid true
         this.setState({ formValid: this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.countryValid });
     }
 

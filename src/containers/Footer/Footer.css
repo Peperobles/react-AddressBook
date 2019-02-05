@@ -1,6 +1,12 @@
 footer{
     background: #1A1A1A;
     text-align: center;
-    height: 100%;
-    color:#2c2c2c;
+    color:#7e7d7d;
+}
+
+footer p{
+    margin: 0;
+}
+#footer-container{
+    min-height: 5vh;
 }

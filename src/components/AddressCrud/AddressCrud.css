@@ -1,3 +1,10 @@
+#admin{
+    min-height: 100vh;
+    background: white;
+}
 #admin img{
     height: 100px;
+}
+ul{
+    list-style: none;
 }

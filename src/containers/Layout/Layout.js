@@ -30,11 +30,6 @@ export class Layout extends Component {
           <Footer />
         </div>
       </BrowserRouter>
-
-
-      // <div>
-      //   <Main />
-      // </div>
     )
   }
 }
